@@ -4,35 +4,37 @@ public class DailyPower {
 
     // a) print power prices during a day
     public static void printPowerPrices(double[] prices) {
-
-        // TODO
+        for (double i : prices){
+            System.out.printf("%.2f NOK ", i);
+        }
 
     }
 
     // b) print power usage during a day
     public static void printPowerUsage(double[] usage) {
-
-        // TODO
+        for (double i : usage){
+            System.out.printf("%.2f kWh ", i);
+        }
 
     }
 
     // c) compute power usage for a single day
     public static double computePowerUsage(double[] usage) {
-
         double sum = 0;
 
-        // TODO
-
+        for (double i : usage){
+            sum += i;
+        }
         return sum;
     }
 
     // d) compute spot price for a single day
     public static double computeSpotPrice(double[] usage, double[] prices) {
-
         double price = 0;
 
-        // TODO
-
+        for (int i=0; i<usage.length; i++){
+            price += usage[i] * prices[i];
+        }
         return price;
     }
 
@@ -45,6 +47,7 @@ public class DailyPower {
         double support = 0;
 
         // TODO
+
 
         return support;
     }
@@ -63,30 +66,34 @@ public class DailyPower {
 
     // g) compute norges pris for a single day
     public static double computeNorgesPrice(double[] usage) {
-
         double price = 0;
 
-        // TODO
-
+        for (double i : usage) {
+            price += i * NORGESPRIS_KWH;
+        }
         return price;
     }
 
     // g) compute peak usage during a single day
     public static double findPeakUsage(double[] usage) {
-
         double temp_max = 0;
 
-        // TODO
-
+        for (int i=0; i<usage.length; i++){
+            if (usage[i] > temp_max){
+                temp_max = usage[i];
+            }
+        }
         return temp_max;
     }
 
     public static double findAvgPower(double[] usage) {
-
         double average = 0;
+        double sum = 0;
 
-        // TODO
-
+        for (double i : usage){
+            sum += i;
+        }
+        average = sum / usage.length;
         return average;
     }
 }

@@ -9,18 +9,17 @@ public class Customers {
     // a) Complete constructor
     public Customers(int size) {
 
-        // TODO
-
+        customers = new Customer[size];
     }
 
     // b) count number of non-null references
     public int countNonNull() {
-
-
         int count = 0;
-
-        // TODO
-
+        for (int i=0; i<customers.length; i++){
+            if (customers[i] == null){
+                count++;
+            }
+        }
         return count;
     }
 

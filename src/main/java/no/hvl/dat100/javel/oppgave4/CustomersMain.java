@@ -12,12 +12,12 @@ public class CustomersMain {
         System.out.println("==============");
         System.out.println();
 
-        /*
-        TODO
+        // Oppgave 4a) Konstruktør
+        Customers cTab = new Customers(5);
 
-         Write code that uses and tests the methods implemented in the Customers class
+        // Oppgave 4b) Telle antall kunder
+        System.out.println(cTab.countNonNull());
 
-        */
 
     }
 }

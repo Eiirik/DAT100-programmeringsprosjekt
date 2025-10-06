@@ -33,6 +33,14 @@ public class DayMain {
         double pris = DailyPower.computeSpotPrice(powerusage_day, powerprices_day);
         System.out.println("Strømpris med spotpris for dagen: " + String.format("%.2f", pris) + " kr.");
 
+        // Oppgave 1e)
+        double stromstotteTime = DailyPower.getSupport(powerusage_day[8], powerprices_day[8]);
+        System.out.println("Strømstøtte for gitt time: " + String.format("%.2f", stromstotteTime) + " kr.");
+
+        // Oppgave 1f)
+        double stromstotteDag = DailyPower.computePowerSupport(powerusage_day, powerprices_day);
+        System.out.println("Strømstøtte for dagen er: " + String.format("%.2f", stromstotteDag) + " kr");
+
         // Oppgave 1g)
         System.out.println("Pris for støm denne dagen med fastpris på 50 øre per kWh: " + DailyPower.computeNorgesPrice(powerusage_day) + " kr.");
 

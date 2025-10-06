@@ -37,6 +37,10 @@ public class MonthMain {
         double spotprisMnd = MonthlyPower.computeSpotPrice(power_usage_month, power_prices_month);
         System.out.println("Spotpris for måneden: " + String.format("%.2f", spotprisMnd) + " kr.");
 
+        // Oppgave 2f) Strømstøtte for måneden
+        double stromstotte = MonthlyPower.computePowerSupport(power_usage_month, power_prices_month);
+        System.out.println("Strømstøtte for måneden: " + String.format("%.2f", stromstotte) + " kr.");
+
         // Oppgave 2g) Norgespris for måneden.
         double norgesprisMnd = MonthlyPower.computeNorgesPrice(power_usage_month);
         System.out.println("Norgespris for måneden: " + String.format("%.2f", norgesprisMnd) + " kr.");

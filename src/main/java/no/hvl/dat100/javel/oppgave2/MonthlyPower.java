@@ -79,11 +79,18 @@ public class MonthlyPower {
 
     // f) power support for the month
     public static double computePowerSupport(double[][] usage, double[][] prices) {
-
+        final double THRESHOLD = 0.9375;
+        final double PERCENTAGE = 0.9;
         double support = 0;
 
-        // TODO
+        for (int i=0; i<usage.length; i++){
+            for (int j=0; j<prices[i].length; j++){
 
+                if (prices[i][j] > THRESHOLD){
+                    support += usage[i][j] * (prices[i][j] - THRESHOLD) * PERCENTAGE;
+                }
+            }
+        }
         return support;
     }
 

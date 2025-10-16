@@ -25,20 +25,56 @@ public class Invoice {
 
     }
 
+    double totalUsage = 0;
     public void computeAmount() {
-        if (c.getAgreement() == PowerAgreementType.SPOTPRICE){
+        totalUsage = 0;
+        amount = 0;
+        if (c.getAgreement() == PowerAgreementType.SPOTPRICE) {
+            for (int i = 0; i < usage.length; i++) {
+                for (int j = 0; j < usage[i].length; j++) {
+                    totalUsage += usage[i][j];
+                    amount += usage[i][j] * prices[i][j];
+                }
+            }
+        } else if (c.getAgreement() == PowerAgreementType.NORGESPRICE) {
+            for (int i = 0; i < usage.length; i++) {
+                for (int j = 0; j < usage[i].length; j++) {
+                    totalUsage += usage[i][j];
+                    amount += usage[i][j] * 0.50; // Norgespris er 0.50kr pr kWh
+                }
+            }
+
+        } else if (c.getAgreement() == PowerAgreementType.POWERSUPPORT) {
+            final double THRESHOLD = 0.9375;
+            final double PERCENTAGE = 0.9;
+            double support = 0;
+
+            for (int i = 0; i < usage.length; i++) {
+                for (int j = 0; j < usage[i].length; j++) {
+                    totalUsage += usage[i][j];
+                    double currentPrice = prices[i][j];
+                    double effectivePrice;
+
+                    if (currentPrice > THRESHOLD) {
+                        // Staten dekker 90& av alt over THRESHOLD grensen
+                        double stromstotte = (currentPrice - THRESHOLD) * PERCENTAGE;
+                        effectivePrice = currentPrice - stromstotte;
+                    } else {
+                        effectivePrice = currentPrice;
+                    }
+                    amount += usage[i][j] * effectivePrice;
+                }
+            }
 
         }
-        else if (c.getAgreement() == PowerAgreementType.NORGESPRICE){
-
-        }
-        // TODO ?????????
-
     }
 
     public void printInvoice() {
 
-        // TODO
+        System.out.println(this.c + "\n" +
+                "\nMonth: " + month +
+                "\nUsage (kWh): " + totalUsage +
+                "\nAmount: " + amount + "kr");
 
     }
 }

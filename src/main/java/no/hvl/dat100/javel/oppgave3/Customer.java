@@ -43,9 +43,13 @@ public class Customer {
     public void setAgreement(PowerAgreementType nyAgreement){
         agreement = nyAgreement;
     }
+
     // Oppgave 3d) toString metode
     public  String toString(){
-        return "Customer number " + customer_id + "\nName " + name + "\nEmail " + email + "\nAgreement " + agreement;
+        return "Customer number " + customer_id + "\n" +
+                "Name " + name + "\n" +
+                "Email " + email + "\n" +
+                "Agreement " + agreement;
     }
 
 

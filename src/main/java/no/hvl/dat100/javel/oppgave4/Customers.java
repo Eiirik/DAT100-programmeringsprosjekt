@@ -16,7 +16,7 @@ public class Customers {
     public int countNonNull() {
         int count = 0;
         for (int i=0; i<customers.length; i++){
-            if (customers[i] == null){
+            if (customers[i] != null){
                 count++;
             }
         }
@@ -29,8 +29,13 @@ public class Customers {
         boolean funnet = false;
         Customer c = null;
 
-        // TODO
-
+        for (Customer c1 : customers){
+            if (c1 != null && c1.getCustomer_id() == customer_id){
+                c = c1;
+                funnet = true;
+                break;
+            }
+        }
         return c;
     }
 
@@ -39,8 +44,13 @@ public class Customers {
 
         boolean inserted = false;
 
-        // TODO
-
+        for (int i=0; i<customers.length; i++){
+            if (customers[i] == null){
+                customers[i] = c;
+                inserted = true;
+                break; // stopper når vi har lagt inn kunden
+            }
+        }
         return inserted;
     }
 
@@ -50,18 +60,36 @@ public class Customers {
         boolean deleted = false;
         Customer c = null;
 
-        // TODO
-
-        return c;
+            for (int i=0; i<customers.length; i++){
+                if (customers[i] != null && customers[i].getCustomer_id() == customer_id){
+                    c = customers[i];
+                    customers[i] = null;
+                    deleted = true;
+                    break;
+                }
+            }
+            return c;
     }
+
 
     // f) return reference table with all customers
     public Customer[] getCustomers() {
 
-        Customer[] customers = null;
+        Customer[] cust = null;
 
-        // TODO
+        int size = 0;
+        for (Customer c : customers){
+            if (c != null){
+                size++;
+            }
+        }
+        cust = new Customer[size];
 
-        return customers;
+        for (int j=0; j<cust.length; j++){
+            if (customers != null){
+                cust[j] = customers[j];
+            }
+        }
+        return cust;
     }
 }

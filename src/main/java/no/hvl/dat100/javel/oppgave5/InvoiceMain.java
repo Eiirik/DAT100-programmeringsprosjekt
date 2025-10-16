@@ -3,7 +3,10 @@ package no.hvl.dat100.javel.oppgave5;
 import no.hvl.dat100.javel.oppgave3.Customer;
 import no.hvl.dat100.javel.oppgave3.PowerAgreementType;
 import no.hvl.dat100.javel.oppgave2.MonthPowerData;
+import no.hvl.dat100.javel.oppgave4.Customers;
 import no.hvl.dat100.javel.oppgave4.CustomersMain;
+
+import javax.swing.text.html.CSS;
 
 public class InvoiceMain {
 

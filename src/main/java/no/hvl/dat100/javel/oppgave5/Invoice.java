@@ -74,7 +74,7 @@ public class Invoice {
         System.out.println(this.c + "\n" +
                 "\nMonth: " + month +
                 "\nUsage (kWh): " + totalUsage +
-                "\nAmount: " + amount + "kr");
+                "\nAmount: " + amount + " kr");
 
     }
 }

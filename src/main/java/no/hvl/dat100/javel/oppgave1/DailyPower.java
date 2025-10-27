@@ -43,7 +43,7 @@ public class DailyPower {
     public static double getSupport(double usage, double price) {
         double support = 0;
 
-        if (usage > THRESHOLD){
+        if (price > THRESHOLD){
             support = usage * (price - THRESHOLD) * PERCENTAGE;
         }
         return support;

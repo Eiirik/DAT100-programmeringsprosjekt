@@ -49,6 +49,6 @@ public class DayMain {
 
         // Oppgave 1i)
         double gjennomsnitt = DailyPower.findAvgPower(powerusage_day);
-        System.out.println("Gjennomsnittslig strømforbruk per time: " + String.format("%.2f", gjennomsnitt));
+        System.out.println("Gjennomsnittslig strømforbruk per time: " + String.format("%.2f", gjennomsnitt) + " kWh");
     }
 }
